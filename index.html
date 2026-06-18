@@ -539,7 +539,6 @@
     .ref-tag   { font-size: 8px; padding: 1px 5px; }
   }
 
-
 /* ── TELA DE AUTENTICAÇÃO ── */
 #auth-overlay {
   position: fixed; inset: 0; z-index: 9999;
@@ -614,6 +613,53 @@
 #auth-btn:disabled { background: #94a3b8; cursor: not-allowed; }
 #auth-attempts { font-size: 12px; color: #94a3b8; margin-top: 12px; min-height: 18px; }
 #auth-timer { font-size: 13px; color: #c0392b; font-weight: 700; margin-top: 6px; min-height: 20px; }
+
+/* ── MODO DEMO ── */
+#demo-banner {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 10000;
+  background: linear-gradient(90deg, #1B3A5C 0%, #2D5B8A 100%);
+  color: #fff; font-family: var(--font);
+  display: none; align-items: center; justify-content: center; gap: 8px;
+  padding: 9px 20px; font-size: 13px; font-weight: 600;
+  box-shadow: 0 2px 12px rgba(27,58,92,0.35);
+  letter-spacing: 0.1px;
+}
+#demo-timer { color: #ffd17a; font-weight: 700; font-variant-numeric: tabular-nums; }
+#demo-expired {
+  position: fixed; inset: 0; z-index: 10001;
+  background: linear-gradient(135deg, #EBF4FF 0%, #F0F4F8 50%, #E8F0FA 100%);
+  display: none; align-items: center; justify-content: center;
+  font-family: var(--font);
+}
+#demo-expired-card {
+  background: #fff; border-radius: 18px;
+  box-shadow: 0 8px 40px rgba(27,58,92,0.15), 0 2px 8px rgba(0,0,0,0.07);
+  padding: 48px 40px 38px; width: 100%; max-width: 420px;
+  text-align: center; margin: 16px;
+}
+#demo-expired-icon {
+  width: 68px; height: 68px;
+  background: linear-gradient(135deg, #1B3A5C, #2D5B8A);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 22px; font-size: 30px; line-height: 1;
+  box-shadow: 0 4px 18px rgba(27,58,92,0.28);
+}
+#demo-expired-card h2 {
+  font-size: 22px; font-weight: 700; color: #1B3A5C; margin-bottom: 10px;
+}
+#demo-expired-card p {
+  font-size: 14px; color: #64748b; margin-bottom: 28px; line-height: 1.65;
+}
+#demo-wa-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #25D366; color: #fff; text-decoration: none;
+  border-radius: 12px; padding: 14px 26px;
+  font-size: 15px; font-weight: 700; font-family: var(--font);
+  box-shadow: 0 4px 14px rgba(37,211,102,0.3);
+  transition: opacity .18s, transform .1s;
+}
+#demo-wa-btn:hover { opacity: 0.88; }
+#demo-wa-btn:active { transform: scale(0.98); }
 </style>
 </head>
 <body>
@@ -647,6 +693,31 @@
       &ldquo;Se tens de servir a Deus com a tua inteligência, para ti estudar é uma obrigação grave.&rdquo;
       <span style="display:block;margin-top:3px;font-style:normal;font-weight:600;color:#cbd5e0;">S. José Maria Escrivá</span>
     </div>
+  </div>
+</div>
+
+
+<!-- ══ FAIXA DEMO ══ -->
+<div id="demo-banner">
+  <span>🎁</span>
+  <span>Modo demonstração —</span>
+  <span id="demo-timer">5m:00s restantes</span>
+</div>
+
+<!-- ══ TELA ENCERRAMENTO DEMO ══ -->
+<div id="demo-expired">
+  <div id="demo-expired-card">
+    <div id="demo-expired-icon">⏰</div>
+    <h2>Demonstração encerrada</h2>
+    <p>Gostou do sistema?<br>Adquira acesso completo.</p>
+    <a id="demo-wa-btn"
+       href="https://wa.me/5538988360244?text=Quero%20adquirir%20acesso%20ao%20Prescri%C3%A7%C3%B5es%20PS"
+       target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      Falar no WhatsApp
+    </a>
   </div>
 </div>
 
@@ -12570,6 +12641,21 @@ function calcPed() {
 </script>
 </main>
 <script>
+/* ── PRÉ-AUTH DEMO: roda antes do check de senha ── */
+(function(){
+  try {
+    var token = new URLSearchParams(location.search).get('demo');
+    if (!token) return;
+    sessionStorage.setItem('ps_auth_ok', '1'); // bypass tela de senha
+    if (localStorage.getItem('demo_usado_' + token) === 'true') {
+      window.__DEMO_EXPIRED = true;
+    } else {
+      window.__DEMO_TOKEN = token;
+    }
+  } catch(e) {}
+})();
+</script>
+<script>
 (function(){
   const AUTH_KEY  = 'ps_auth_ok';
   const FAIL_KEY  = 'ps_auth_fails';
@@ -12677,5 +12763,43 @@ function calcPed() {
   &ldquo;Se tens de servir a Deus com a tua intelig&ecirc;ncia, para ti estudar &eacute; uma obriga&ccedil;&atilde;o grave.&rdquo;
   <span style="display:block;margin-top:3px;font-style:normal;font-weight:600;color:rgba(255,255,255,0.4);">S. Jos&eacute; Maria Escriva&acute;</span>
 </footer>
+<script>
+/* ── UI DEMO: controla banner + countdown + tela expirada ── */
+(function(){
+  if (window.__DEMO_EXPIRED) {
+    var el = document.getElementById('demo-expired');
+    if (el) el.style.display = 'flex';
+    return;
+  }
+  var token = window.__DEMO_TOKEN;
+  if (!token) return;
+
+  localStorage.setItem('demo_usado_' + token, 'true');
+
+  var banner  = document.getElementById('demo-banner');
+  var timerEl = document.getElementById('demo-timer');
+  var expired = document.getElementById('demo-expired');
+
+  if (banner) banner.style.display = 'flex';
+
+  var rem = 5 * 60; // segundos
+  function fmt(r) {
+    var m = Math.floor(r / 60), s = r % 60;
+    return m + 'm:' + (s < 10 ? '0' : '') + s + 's restantes';
+  }
+  if (timerEl) timerEl.textContent = fmt(rem);
+
+  var iv = setInterval(function() {
+    rem--;
+    if (rem <= 0) {
+      clearInterval(iv);
+      if (banner)  banner.style.display  = 'none';
+      if (expired) expired.style.display = 'flex';
+      return;
+    }
+    if (timerEl) timerEl.textContent = fmt(rem);
+  }, 1000);
+})();
+</script>
 </body>
 </html>
